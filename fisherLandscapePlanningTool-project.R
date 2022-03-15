@@ -4,49 +4,35 @@
 
 # This document outlines the usage of the modules in the project Fisher Landscape Planning Tool, which the main module is the Fisher Landscape Explorer (FLEX) tool (located in the modules' folder as a submodule to this project).
 
-## Checking directory
-wd <- getwd()
-if (!grepl(pattern = "fisherLandscapePlanningTool", x = getwd()))
-  stop("Please make sure you either open the project file in RStudio (fisherLandscapePlanningTool.RProj) or check the working directory if in R command before running this script. It needs to match the current file's directory (~/fisherLandscapePlanningTool/).")
+## Initialization
+source("R/initFunctions.R")
 
-## Downloading and initializing submodules:
+## Checking directory
+checkDirectory()
+
+## Checking modules
 # To properly run this model, please make sure all submodules of interest have also been downloaded and, if using GitHub,  initialized (to check if a module has been initialized, please go to the module's folder and check for existing files. If no files can be found, please run the following command).  
 
-updateSubmodules <- FALSE # Should the submodules be updated?
-whichSubmodules <- "FLEX" # Specify which modules to be added
-hostLink <- "git@github.com:tati-micheletti/FLEX.git" # Specify the github (SSH) paths to the modules
+checkingModules(updateSubmodules = FALSE, # Should the submodules be updated?
+                whichSubmodules = "FLEX", # Specify which modules to be added
+                hostLink = "git@github.com:tati-micheletti/FLEX.git" # Specify the github (SSH) paths to the modules
+                )
 
-names(hostLink) <- whichSubmodules
-submoduleExist <- grepl(x = list.dirs(file.path(wd, "modules/"), recursive = TRUE),
-                         pattern = paste(whichSubmodules, collapse = "|"))
-if (!all(submoduleExist)){
-  lapply(whichSubmodules[!submoduleExist], function(submodule){
-    system(paste0("cd ", file.path(getwd(), "modules"), " && git submodule add ", hostLink[submodule]),
-           wait = TRUE)
-  })
-} else {
-  # Check if the submodule has been initiated
-  submodInitialized <- lapply(whichSubmodules[submoduleExist], function(submodule){
-    # HERE
-    if (updateSubmodules)
-      system(paste0("cd ", getwd(), " && git submodule foreach git pull"),
-             wait = TRUE)
-  })
-}
+## Install and load required packages
+installAndLoadPkgs()
 
-## load required packages
-library(data.table)
-library(sp)
-library(raster)
-library(SpaDES)
+## Setting up paths
+setPaths(cachePath = checkPath(file.path(getwd(), "cache"), create = TRUE),
+         inputPath = checkPath(file.path(getwd(), "inputs"), create = TRUE),
+         outputPath = checkPath(file.path(getwd(), "outputs"), create = TRUE),
+         modulePath = checkPath(file.path(getwd(), "modules"), create = TRUE),
+         rasterPath = checkPath(file.path(getwd(), "tempDir"), create = TRUE))
 
-## environment setup
-setPaths(cachePath = "cache",
-         inputPath = "inputs",
-         modulePath = "modules",
-         outputPath = "outputs")
+## Load Data
+# Reproductive rates from manuscript
+repro.CI <- read.csv(file.path(Paths[["modulePath"]], "FLEX/data/repro.CI.csv", 
+                               header = TRUE)
 
-## simulation initialization
 simTimes <- c(start = 0, end = 10)
 
 moduleList <- list("module1", "module2") # rename module1 and module2
