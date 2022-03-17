@@ -4,22 +4,21 @@
 
 # This document outlines the usage of the modules in the project Fisher Landscape Planning Tool, which the main module is the Fisher Landscape Explorer (FLEX) tool (located in the modules' folder as a submodule to this project).
 
-## Initialization
-source("R/initFunctions.R")
-
 ## Checking directory
+source("R/checkDirectory.R")
 checkDirectory()
+
+## Install and load required packages
+source("R/installAndLoadPkgs.R")
+installAndLoadPkgs()
 
 ## Checking modules
 # To properly run this model, please make sure all submodules of interest have also been downloaded and, if using GitHub,  initialized (to check if a module has been initialized, please go to the module's folder and check for existing files. If no files can be found, please run the following command).  
-
+source("R/checkingModules.R")
 checkingModules(updateSubmodules = FALSE, # Should the submodules be updated?
                 whichSubmodules = "FLEX", # Specify which modules to be added
                 hostLink = "git@github.com:tati-micheletti/FLEX.git" # Specify the github (SSH) paths to the modules
-                )
-
-## Install and load required packages
-installAndLoadPkgs()
+)
 
 ## Setting up paths
 setPaths(cachePath = checkPath(file.path(getwd(), "cache"), create = TRUE),
