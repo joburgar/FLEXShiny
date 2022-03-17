@@ -84,7 +84,7 @@
 "modelr","C:/Users/Tati/Documents/GitHub/Fisher_Landscape_Planning_Tool/libraries/4.1","0.1.8",NA,NA,NA,NA
 "munsell","C:/Users/Tati/Documents/GitHub/Fisher_Landscape_Planning_Tool/libraries/4.1","0.5.0",NA,NA,NA,NA
 "NetLogoR","C:/Users/Tati/Documents/GitHub/Fisher_Landscape_Planning_Tool/libraries/4.1","0.3.9",NA,NA,NA,NA
-"nloptr","C:/Users/Tati/Documents/GitHub/Fisher_Landscape_Planning_Tool/libraries/4.1","2.0.0",NA,NA,NA,NA
+"nloptr","C:/Users/Tati/Documents/GitHub/Fisher_Landscape_Planning_Tool/libraries/4.1","1.2.2.2",NA,NA,NA,NA
 "nnls","C:/Users/Tati/Documents/GitHub/Fisher_Landscape_Planning_Tool/libraries/4.1","1.4",NA,NA,NA,NA
 "numDeriv","C:/Users/Tati/Documents/GitHub/Fisher_Landscape_Planning_Tool/libraries/4.1","2016.8-1.1",NA,NA,NA,NA
 "openssl","C:/Users/Tati/Documents/GitHub/Fisher_Landscape_Planning_Tool/libraries/4.1","1.4.6",NA,NA,NA,NA
