@@ -95,6 +95,10 @@ installAndLoadPkgs <- function(){
     Require("Cairo")
     Require("stringr")
     Require("tidyr")
+    Require("data.table")
+    Require("qs")
+    Require("PNWColors")
+    Require("sf")
     
     Require::pkgSnapshot() # Use this to be able to install packages from this file
     # i.e., automatically generates list of installed packages and versions that can
@@ -112,5 +116,10 @@ installAndLoadPkgs <- function(){
     Require("dplyr")
     Require("Cairo")
     Require("stringr")
+    Require("tidyr")
+    Require("data.table")
+    Require("qs")
+    Require("PNWColors")
+    Require("sf")
   }
 }
