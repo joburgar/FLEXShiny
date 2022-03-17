@@ -54,7 +54,7 @@ installAndLoadPkgs <- function(){
   }
   library("Require")
   
-  setLibPaths(file.path(getwd(), "libraries/4.1/")) 
+  setLibPaths(file.path(getwd(), "libraries/")) 
   
   if (!file.exists(file.path(getwd(), "packageVersions.txt"))){
     
