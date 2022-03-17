@@ -6,7 +6,8 @@ This project hosts the Fisher Landscape Planning Tool, which the main module is 
 
 1. Please make sure you have git installed in your computer before proceeding. Information on git installation can be found here: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 2. Please clone the project to your desired directory using: `git clone git@github.com:tati-micheletti/fisherLandscapePlanningTool.git`
-3a. In RStudio (RECOMMENDED: https://www.rstudio.com/products/rstudio/download/#download): Open the project fisherLandscapePlanningTool.Rproj. ATTENTION: Make sure you did ***NOT*** check the box saying: `Disable the RProfile execution on session start/resume` located in RStudio >> Tools >> Project Options >> General Tab.
+3a. In RStudio (RECOMMENDED: https://www.rstudio.com/products/rstudio/download/#download): Open the project fisherLandscapePlanningTool.Rproj.  
+[[ ATTENTION: ]] Make sure you did ***NOT*** check the box saying: `Disable the RProfile execution on session start/resume` located in RStudio >> Tools >> Project Options >> General Tab.
 3b. In R command line: Set your home drive to the project folder: i.e., `setwd("~/fisherLandscapePlanningTool")`
 4. Run the code from `fisherLandscapePlanningTool-project.R` line by line to aviod missing error messages
 5. The code will set the correct paths to inputs and outputs, install all libraries in the correct needed versions (which will take some time), and then it will perform the simulations as expected.
