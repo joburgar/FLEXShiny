@@ -106,6 +106,8 @@ installAndLoadPkgs <- function(){
     
   } else {
     library("Require")
+    install.packages("./archieved_packages/nloptr_1.2.2.2.tar.gz",
+                     repos = NULL, type = "source")
     Require(packageVersionFile = file.path(getwd(), "packageVersions.txt"), 
             libPaths = .libPaths()[1])
     Require("reproducible")
