@@ -24,7 +24,7 @@ checkingModules <- function(updateSubmodules = FALSE, # Should the submodules be
         stop(paste0("Automatic submodule clonning did not work (possibly due to ",
                     "Windows use). Please paste the following in your command", 
                     " line (which can be accessed using the Terminal in RStudio): ",
-                    addSubMCommand))
+                    paste0("cd ", getwd(), " && git submodule update")))
       print(paste0("Submodule ", submodule, " added"))
     })
   } else {
