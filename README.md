@@ -9,5 +9,6 @@ This project hosts the Fisher Landscape Planning Tool, which the main module is 
 3a. In RStudio (RECOMMENDED: https://www.rstudio.com/products/rstudio/download/#download): Open the project fisherLandscapePlanningTool.Rproj
 3b. In R command line: Set your home drive to the project folder: i.e., `setwd("~/fisherLandscapePlanningTool")`
 4. Run the code from `fisherLandscapePlanningTool-project.R` line by line to aviod missing error messages
+5. The code will set the correct paths to inputs and outputs, install all libraries in the correct needed versions (which will take some time), and then it will perform the simulations as expected.
 
 **ATTENTION: Read any error messages. They are almost always very informative and in some cases also explain how to solve the current error.** 
