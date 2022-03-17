@@ -27,8 +27,7 @@ checkingModules <- function(updateSubmodules = FALSE, # Should the submodules be
         stop(paste0("Automatic init of submodule did not work (possibly due to ",
                     "older version of git). Please paste the following in your command", 
                     " line (which can be accessed using the Terminal in RStudio): ",
-                    paste0("cd ", file.path(getwd(), "modules"), 
-                           " && git submodule init ")))
+                    paste0("cd ", getwd(), " && git submodule update")))
       }
     })
   }
