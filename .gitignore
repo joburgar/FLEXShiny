@@ -38,3 +38,5 @@ vignettes/*.pdf
 # Libraries
 libraries
 
+# Outputs
+outputs
