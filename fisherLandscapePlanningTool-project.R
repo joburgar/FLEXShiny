@@ -28,31 +28,64 @@ setPaths(cachePath = checkPath(file.path(getwd(), "cache"), create = TRUE),
          modulePath = checkPath(file.path(getwd(), "modules"), create = TRUE),
          rasterPath = checkPath(file.path(getwd(), "tempDir"), create = TRUE))
 
-## Load Data
-# Reproductive rates from manuscript
-repro.CI <- read.csv(file.path(Paths[["modulePath"]], "FLEX/data/repro.CI.csv", 
-                               header = TRUE)
+## Setting up simulation time 
+## NOTE: Currently, the functions are looping on their own over years. 
+## Some work is needed to desconstruct the FEMALE_IBM_simulation_same_world() 
+## to use the scheduler as expected.
+simTimes <- list(start = 1, end = 1)
 
-simTimes <- c(start = 0, end = 10)
+## Setting up modules list 
+moduleList <- list("FLEX") # Name of the modules to run
 
-moduleList <- list("module1", "module2") # rename module1 and module2
-
+## Setting up parameters needed
+## NOTE: If you provide an empty list of parameters, these are below are the 
+## defaults
 parameters <- list(
-  module1 = list(), # rename module1 and provide named list of params
-  module2 = list()  # rename module2 and provide named list of params
+  FLEX = list(
+    "iterations" = 100,
+    "yrs.to.run" = 10,
+    "nFemales" = 10, 
+    "maxAgeFemale" = 9,
+    "dist_mov" = 1.0,
+    "TS" = 12,
+    "name_out" = "Pex2",
+    "sim_order" = 2
+    )
 )
 
-#?inputs
-#?outputs
+## Setting up the outputs to be saved
+outputs <- data.frame(
+  objectName = "B.w1_real.FEMALE",
+  saveTime = seq(simTimes[["start"]],
+                 simTimes[["end"]], 
+                 by = 1)
+  )
+  
+mySim <- simInitAndSpades(times = simTimes,
+                          modules = moduleList,
+                          params = parameters,
+                          outputs = outputs)
 
-mySim <- simInit(
-  times = simTimes,
-  modules = moduleList,
-  params = parameters
-)
+# Extract results from simulation
 
-## run the simulation
-mySimOut <- spades(mySim) # opitonally, use `spades(Copy(mySim))`
+# Simulated world
+mySim$w1
 
-## run a simulation experiment
-# see `?experiment`
+# Predictions and plot
+mySim$B.w1_real
+
+# Full dataset
+mySim$B.w1_real.FEMALE
+
+# Heatmap
+raster::plot(mySim$B.w1_real_heatmap$raster)
+
+# Population information
+# Mean number of fisher
+mySim$B.w1_real_heatmap$Fisher_Nmean
+# SE number of fisher
+mySim$B.w1_real_heatmap$Fisher_Nse
+# Replicat simulations on which population did not crash 
+# (i.e., population reach zero)
+mySim$B.w1_real_heatmap$nozerosims
+
