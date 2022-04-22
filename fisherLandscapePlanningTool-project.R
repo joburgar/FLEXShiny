@@ -17,7 +17,7 @@ installAndLoadPkgs()
 source("R/checkingModules.R")
 checkingModules(updateSubmodules = FALSE, # Should the submodules be updated?
                 whichSubmodules = "FLEX", # Specify which modules to be added
-                hostLink = "git@github.com:tati-micheletti/FLEX.git" # Specify the github (SSH) paths to the modules
+                hostLink = "git@github.com:joburgar/FLEX.git" # Specify the github (SSH) paths to the modules
 )
 
 ## Setting up paths
@@ -48,7 +48,8 @@ parameters <- list(
     "dist_mov" = 1.0,
     "TS" = 12,
     "name_out" = "Pex2",
-    "sim_order" = 2
+    # "rextent" = IBM_aoi$canBex_raster, # not sure how best to include this...
+    "sim_order" = 2,
     )
 )
 
