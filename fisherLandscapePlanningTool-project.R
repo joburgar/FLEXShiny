@@ -47,15 +47,14 @@ parameters <- list(
     "maxAgeFemale" = 9,
     "dist_mov" = 1.0,
     "TS" = 12,
-    "name_out" = "Pex2",
-    # "rextent" = IBM_aoi$canBex_raster, # not sure how best to include this...
-    "sim_order" = 2,
+    "name_out" = "Cariboo",
+    "sim_order" = 2
     )
 )
 
 ## Setting up the outputs to be saved
 outputs <- data.frame(
-  objectName = "B.w1_real.FEMALE",
+  objectName = "EX_real.FEMALE",
   saveTime = seq(simTimes[["start"]],
                  simTimes[["end"]], 
                  by = 1)
@@ -72,20 +71,20 @@ mySim <- simInitAndSpades(times = simTimes,
 mySim$w1
 
 # Predictions and plot
-mySim$B.w1_real
+mySim$EX_real
 
 # Full dataset
-mySim$B.w1_real.FEMALE
+mySim$EX_real.FEMALE
 
 # Heatmap
-raster::plot(mySim$B.w1_real_heatmap$raster)
+raster::plot(mySim$EX_real_heatmap$raster)
 
 # Population information
 # Mean number of fisher
-mySim$B.w1_real_heatmap$Fisher_Nmean
+mySim$EX_real_heatmap$Fisher_Nmean
 # SE number of fisher
-mySim$B.w1_real_heatmap$Fisher_Nse
-# Replicat simulations on which population did not crash 
+mySim$EX_real_heatmap$Fisher_Nse
+# Replicate simulations on which population did not crash 
 # (i.e., population reach zero)
-mySim$B.w1_real_heatmap$nozerosims
+mySim$EX_real_heatmap$nozerosims
 
