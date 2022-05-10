@@ -17,7 +17,7 @@ installAndLoadPkgs()
 source("R/checkingModules.R")
 checkingModules(updateSubmodules = FALSE, # Should the submodules be updated?
                 whichSubmodules = "FLEX", # Specify which modules to be added
-                hostLink = "git@github.com:bcgov/FLEX.git" # Specify the github (SSH) paths to the modules
+                hostLink = "git@github.com/bcgov/FLEX.git" # Specify the github (SSH) paths to the modules
 )
 
 ## Setting up paths

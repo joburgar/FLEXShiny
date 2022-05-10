@@ -1,7 +1,7 @@
 ## Checking modules
 checkingModules <- function(updateSubmodules = FALSE, # Should the submodules be updated?
                             whichSubmodules = "FLEX", # Specify which modules to be added
-                            hostLink = "git@github.com:bcgov/FLEX.git"){ # Specify the github (SSH) paths to the modules
+                            hostLink = "git@github.com/bcgov/FLEX.git"){ # Specify the github (SSH) paths to the modules
   wd <- getwd()
   names(hostLink) <- whichSubmodules
   submoduleExist <- grepl(x = list.dirs(file.path(wd, "modules/"), recursive = FALSE),
