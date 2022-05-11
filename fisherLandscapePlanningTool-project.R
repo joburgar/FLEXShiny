@@ -15,7 +15,7 @@ installAndLoadPkgs()
 ## Checking modules
 # To properly run this model, please make sure all submodules of interest have also been downloaded and, if using GitHub,  initialized (to check if a module has been initialized, please go to the module's folder and check for existing files. If no files can be found, please run the following command).  
 source("R/checkingModules.R")
-checkingModules(updateSubmodules = FALSE, # Should the submodules be updated?
+checkingModules(updateSubmodules = TRUE, # Should the submodules be updated?
                 whichSubmodules = "FLEX", # Specify which modules to be added
                 hostLink = "git@github.com:bcgov/FLEX.git" # Specify the github (SSH) paths to the modules
 )
@@ -42,7 +42,7 @@ moduleList <- list("FLEX") # Name of the modules to run
 parameters <- list(
   FLEX = list(
     # "iterations" = 100, # hard coding it in for 100 simulations, better for output
-    # "yrs.to.run" = 10,
+    "yrs.to.run" = 10,
     "propFemales" = 0.3, 
     "maxAgeFemale" = 9,
     "dist_mov" = 1.0,
