@@ -12,6 +12,7 @@ checkDirectory()
 source("R/installAndLoadPkgs.R")
 installAndLoadPkgs()
 
+
 ## Checking modules
 # To properly run this model, please make sure all submodules of interest have also been downloaded and, if using GitHub,  initialized (to check if a module has been initialized, please go to the module's folder and check for existing files. If no files can be found, please run the following command).  
 source("R/checkingModules.R")
@@ -45,11 +46,11 @@ parameters <- list(
     "yrs.to.run" = 10,
     "propFemales" = 0.3, 
     "maxAgeFemale" = 9,
-    "dist_mov" = 1.0,
     "TS" = 10,
     "D2_param" = "Max",
     "name_out" = "Cariboo",
-    "sim_order" = 2
+    "sim_order" = 2,
+    "clus_yrs" = 5
     )
 )
 
