@@ -42,7 +42,7 @@ moduleList <- list("FLEX") # Name of the modules to run
 ## defaults
 parameters <- list(
   FLEX = list(
-    # "iterations" = 100, # hard coding it in for 100 simulations, better for output
+    "iterations" = 10, # using 5 for ease of testing, change to 100 once running
     "yrs.to.run" = 10,
     "propFemales" = 0.3, 
     "maxAgeFemale" = 9,
