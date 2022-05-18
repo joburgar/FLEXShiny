@@ -32,7 +32,7 @@ setPaths(cachePath = checkPath(file.path(getwd(), "cache"), create = TRUE),
 ## NOTE: Currently, the functions are looping on their own over years. 
 ## Some work is needed to desconstruct the FEMALE_IBM_simulation_same_world() 
 ## to use the scheduler as expected.
-simTimes <- list(start = 1, end = 10)
+simTimes <- list(start = 1, end = 1) # need to figure out how to get it to be dynamic # have to add in clus object piece
 
 ## Setting up modules list 
 moduleList <- list("FLEX") # Name of the modules to run
@@ -43,20 +43,20 @@ moduleList <- list("FLEX") # Name of the modules to run
 parameters <- list(
   FLEX = list(
     "iterations" = 5, # using 5 for ease of testing, change to 100 once running
-    "yrs.to.run" = 10,
+    # "yrs.to.run" = 10, # not sure this is necessary - part of simTimes above
     "propFemales" = 0.3, 
     "maxAgeFemale" = 9,
-    "TS" = 10,
+    # "TS" = 5,  # using clus_yrs instead
     "D2_param" = "Max",
-    "name_out" = "Cariboo",
-    "sim_order" = 2,
+    # "name_out" = "Cariboo", # not using this anymore
+    # "sim_order" = 2, # not using this anymore
     "clus_yrs" = 5
     )
 )
 
 ## Setting up the outputs to be saved
 outputs <- data.frame(
-  objectName = "EX_real.FEMALE",
+  objectName = "FLEX_output",
   saveTime = seq(simTimes[["start"]],
                  simTimes[["end"]], 
                  by = 1)
@@ -69,24 +69,34 @@ mySim <- simInitAndSpades(times = simTimes,
 
 # Extract results from simulation
 
-# Simulated world
-mySim$w1
+# Simulated start world
+mySim$FLEX_setup$r_start
 
-# Predictions and plot
-mySim$EX_real
+# Population and Habitat info at start
+mySim$FLEX_setup$pop_info$suitable_habitat
+mySim$FLEX_setup$pop_info$total_habitat
+mySim$FLEX_setup$pop_info$perc_habitat
+mySim$FLEX_setup$pop_info$numAF_start
+
 
 # Full dataset
-mySim$EX_real.FEMALE
+mySim$FLEX_output
+
+# Aggregated dataset
+mySim$FLEX_agg_output
 
 # Heatmap
-raster::plot(mySim$EX_real_heatmap$raster)
+mySim$FLEX_heatmap$raster
+raster::plot(mySim$FLEX_heatmap$raster)
 
-# Population information
-# Mean number of fisher
-mySim$EX_real_heatmap$Fisher_Nmean
-# SE number of fisher
-mySim$EX_real_heatmap$Fisher_Nse
 # Replicate simulations on which population did not crash 
 # (i.e., population reach zero)
-mySim$EX_real_heatmap$nozerosims
+mySim$FLEX_heatmap$nozerosims
 
+# Predicted information
+# Mean number of fisher
+mySim$FLEX_heatmap[[3]]$Fisher_Nmean
+# SE number of fisher
+mySim$FLEX_heatmap[[3]]$Fisher_Nse
+# Predicted number of adult fishers with established territories at end of run
+mySim$FLEX_heatmap[[3]]$Fpredicted
