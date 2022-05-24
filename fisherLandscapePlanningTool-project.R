@@ -26,8 +26,6 @@ checkDirectory()
 source("R/installAndLoadPkgs.R")
 installAndLoadPkgs()
 
-install.packages("bcgovr")
-
 ## Checking modules
 # To properly run this model, please make sure all submodules of interest have also been downloaded and, if using GitHub,  initialized (to check if a module has been initialized, please go to the module's folder and check for existing files. If no files can be found, please run the following command).  
 source("R/checkingModules.R")
@@ -58,14 +56,9 @@ moduleList <- list("FLEX") # Name of the modules to run
 parameters <- list(
   FLEX = list(
     "iterations" = 5, # using 5 for ease of testing, change to 100 once running
-    # "yrs.to.run" = 10, # not sure this is necessary - part of simTimes above
     "propFemales" = 0.3, 
     "maxAgeFemale" = 9,
-    # "TS" = 5,  # using clus_yrs instead
     "D2_param" = "Max",
-    # "name_out" = "Cariboo", # not using this anymore
-    # "sim_order" = 2, # not using this anymore
-    "clus_yrs" = 5
     )
 )
 
