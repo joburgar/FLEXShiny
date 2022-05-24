@@ -1,17 +1,3 @@
-# Copyright 2021 Province of British Columbia
-# 
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-#===========================================================================================#
-# You may obtain a copy of the License at
-# 
-# http://www.apache.org/licenses/LICENSE-2.0
-# 
-# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and limitations under the License.
-#===========================================================================================#
-
 # Fisher Landscape Planning Tool
 
 ## Overview  
@@ -25,6 +11,7 @@ checkDirectory()
 ## Install and load required packages
 source("R/installAndLoadPkgs.R")
 installAndLoadPkgs()
+
 
 ## Checking modules
 # To properly run this model, please make sure all submodules of interest have also been downloaded and, if using GitHub,  initialized (to check if a module has been initialized, please go to the module's folder and check for existing files. If no files can be found, please run the following command).  
@@ -56,9 +43,14 @@ moduleList <- list("FLEX") # Name of the modules to run
 parameters <- list(
   FLEX = list(
     "iterations" = 5, # using 5 for ease of testing, change to 100 once running
+    # "yrs.to.run" = 10, # not sure this is necessary - part of simTimes above
     "propFemales" = 0.3, 
     "maxAgeFemale" = 9,
-    "D2_param" = "Max"
+    # "TS" = 5,  # using clus_yrs instead
+    "D2_param" = "Max",
+    # "name_out" = "Cariboo", # not using this anymore
+    # "sim_order" = 2, # not using this anymore
+    "clus_yrs" = 5
     )
 )
 
