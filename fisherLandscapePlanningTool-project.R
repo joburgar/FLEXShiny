@@ -58,7 +58,7 @@ parameters <- list(
     "iterations" = 5, # using 5 for ease of testing, change to 100 once running
     "propFemales" = 0.3, 
     "maxAgeFemale" = 9,
-    "D2_param" = "Max",
+    "D2_param" = "Max"
     )
 )
 
