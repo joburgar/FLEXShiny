@@ -1,4 +1,5 @@
 # global.R
+# test
 
 ## Install and load required packages
 source("R/installAndLoadPkgs.R")
