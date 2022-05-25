@@ -12,7 +12,6 @@ installAndLoadPkgs <- function(){
       print("Packages installed. Your R Session will restart. Please re-run fisherLandscapPlanningTool-project.R again")
       .rs.restartR()
     } else {
-      Require("terra")
       Require("raster")
       Require("reproducible")
       Require("SpaDES.core")

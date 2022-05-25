@@ -12,6 +12,8 @@ checkDirectory()
 source("R/installAndLoadPkgs.R")
 installAndLoadPkgs()
 
+library(raster)
+
 
 ## Checking modules
 # To properly run this model, please make sure all submodules of interest have also been downloaded and, if using GitHub,  initialized (to check if a module has been initialized, please go to the module's folder and check for existing files. If no files can be found, please run the following command).  
