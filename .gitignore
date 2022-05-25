@@ -35,8 +35,8 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 
-# Libraries
+# Libraries (this should be a local dir)
 libraries
 
-# Outputs
+# Outputs (user-specific outputs)
 outputs
