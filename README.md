@@ -9,8 +9,6 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-## BC Fisher Landscape Explorer Shiny App
-
 ## A Shiny app to explore impacts of landscape changes on fisher (*Pekania pennanti*) populations in BC
 
 ### Description and Usage
