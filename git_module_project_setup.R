@@ -2,7 +2,7 @@
 
 ## Overview  
 
-# This document outlines the usage of the modules in the project Fisher Landscape Planning Tool, which the main module is the Fisher Landscape Explorer (FLEX) tool (located in the modules' folder as a submodule to this project).
+# This document outlines the usage of the git modules in the FLEXShiny shiny app, which the main module is the Fisher Landscape Explorer (FLEX) tool (located in the modules' folder as a git submodule to this project).
 
 ## Checking directory
 source("R/checkDirectory.R")
