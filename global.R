@@ -1,66 +1,64 @@
 # global.R
 
-
-# load required packages
-# library(raster)
-library(devtools)
-library(DT)
-library(bsplus)
-library(config)
-library(data.table)
-library(dplyr)
-library(ggplot2)
-# library(golem)
-library(leaflet)
-library(plotly)
-library(purrr)
-library(rintrojs)
-library(rmarkdown)
-# library(sf)
-library(shiny)
-library(shinyBS)
-library(shinycssloaders)
-library(shinydashboard)
-library(shinydashboardPlus)
-library(shinyjs)
-# library(covrpage)
-library(shinyFeedback)
-library(attempt)
-library(config)
-library(reshape2)
-library(tidyverse)
-library(dynutils)
-library(plotly)
-library(DT)
+# Have you set the project up yet? If not, got to git_submodule_project_setup.R
+rstudioapi::navigateToFile("git_module_project_setup.R")
 
 # FLEX model packages (specified versions below, where needed)
 # bypass the automated package checking workflow for now
 # use remotes::install_version() to get specific version from CRAN (not sure if actually needed)
-# require(remotes)
 
-# Package: NetLogoR
-# Version: 0.3.9
+# require(remotes)
 
 # remotes::install_version("NetLogoR",
 #                          version = "0.3.9",
 #                          repos = "http://cran.us.r-project.org")
 
-# Package: SpaDES.core
-# Version: 1.0.10
 
-library(SpaDES.core)
-library(reproducible)
-library(NetLogoR)
-library(magrittr)
-library(dplyr)
-library(Cairo)
-library(stringr)
-library(tidyr)
-library(data.table)
-library(qs)
-library(PNWColors)
-library(sf)
-library(raster)
+require(NetLogoR) # Version: 0.3.9
+require(SpaDES.core) # Version: 1.0.10, this the current version on CRAN
+require(reproducible)
+
+require(magrittr)
+require(dplyr)
+require(Cairo)
+require(stringr)
+require(tidyr)
+require(data.table)
+require(qs)
+require(PNWColors)
+require(sf)
+require(raster)
+
+
+# load required packages
+# require(raster)
+require(devtools)
+require(DT)
+require(bsplus)
+require(config)
+require(data.table)
+require(dplyr)
+require(ggplot2)
+require(plotly)
+require(purrr)
+require(rintrojs)
+require(rmarkdown)
+require(shiny)
+require(shinyBS)
+require(shinycssloaders)
+require(shinydashboard)
+require(shinydashboardPlus)
+require(shinyjs)
+require(shinyFeedback)
+require(attempt)
+require(config)
+require(reshape2)
+require(tidyverse)
+require(dynutils)
+require(plotly)
+require(DT)
+
+
 
 ## Setting up working directory paths for SpaDES module framework
 ## checkPath() checks for formatting consistency and will paste the correct path
