@@ -33,24 +33,23 @@ library(dynutils)
 library(plotly)
 library(DT)
 
-
 # FLEX model packages (specified versions below, where needed)
 # bypass the automated package checking workflow for now
-
-require(remotes)
+# use remotes::install_version() to get specific version from CRAN (not sure if actually needed)
+# require(remotes)
 
 # Package: NetLogoR
 # Version: 0.3.9
 
-remotes::install_version("NetLogoR",
-                         version = "0.3.9",
-                         repos = "http://cran.us.r-project.org")
+# remotes::install_version("NetLogoR",
+#                          version = "0.3.9",
+#                          repos = "http://cran.us.r-project.org")
 
 # Package: SpaDES.core
 # Version: 1.0.10
 
-library(reproducible)
 library(SpaDES.core)
+library(reproducible)
 library(NetLogoR)
 library(magrittr)
 library(dplyr)

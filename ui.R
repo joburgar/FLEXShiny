@@ -61,7 +61,7 @@ ui <- dashboardPage(
              mod_page_home_ui("home")),
       
       tabItem(tabName = "model",
-              mod_page_model_ui("spades"))
+              mod_page_spades_ui("spades"))
     ),
     
     
