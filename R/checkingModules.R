@@ -11,7 +11,7 @@ checkingModules <- function(updateSubmodules = FALSE, # Should the submodules be
       addSubMCommand <- paste0("cd ", file.path(getwd(), "modules"), " && git submodule add ", hostLink[submodule])
       ex <- system(addSubMCommand, wait = TRUE)
       if (ex == 127)
-        stop(paste0("Automatic submodule clonning did not work (possibly due to ",
+        stop(paste0("Automatic submodule cloning did not work (possibly due to ",
                     "Windows use). Please paste the following in your command", 
                     " line (which can be accessed using the Terminal in RStudio): ",
                     paste0("cd ", getwd(), " && git submodule update")))
