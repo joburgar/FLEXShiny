@@ -34,9 +34,9 @@ The FLEX model code base is hosted in a separate repository on the official GitH
 
 4. In R command line: Set your home drive to the project folder: i.e., `setwd("~/FLEXShiny")`   
 
-5. Run the code from `git_submodule_init_update.R` line by line to avoid missing error messages. The code will set the correct paths to inputs and outputs for your local computer, and set up communication between the FLEXShiny parent and the bcgov/FLEX submodule. This only needs to be run during initial project setup on your computer, and then again whenever you need to bring in updates from the FLEX git submodule. 
+5. Run the code from `git_submodule_init_update.R` line by line to avoid missing error messages. The code will set the correct paths to inputs and outputs for your local computer, and set up communication between the FLEXShiny parent and the bcgov/FLEX submodule. This only needs to be run during initial project setup on your computer, and then again whenever you need to bring in updates from the FLEX git submodule. You may need to generate a ssh key pair to configure your GitHub account in order to read from bcgov/FLEX. [This article](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) explains how to do this.
 
-**Note:** A current work around for a failed submodule init is to simply download the contents of the bcgov/FLEX repo and manually move them to the FLEXShiny/modules/FLEX on your local machine. Once you have a local copy of the module, `git_submodule_init_update.R` will succesfully connect to the GitHub remote repo and pull updates. 
+**Note:** A current work around for a failed submodule init is to simply download the contents of the bcgov/FLEX repo and manually move them to the FLEXShiny/modules/FLEX on your local machine. Once you have a local copy of the module, `git_submodule_init_update.R` will successfully connect to the GitHub remote repo and pull updates. 
 
 **ATTENTION: Read any error messages. They are almost always very informative and in some cases also explain how to solve the current error.** 
 
