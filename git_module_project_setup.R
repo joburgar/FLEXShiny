@@ -2,17 +2,22 @@
 
 ## Overview  
 
-# This document outlines the usage of the git modules in the FLEXShiny shiny app, which the main module is the Fisher Landscape Explorer (FLEX) tool (located in the modules' folder as a git submodule to this project).
+# This document outlines the usage of the git module in the FLEXShiny shiny app
+# The main module is the Fisher Landscape Explorer (FLEX) tool 
+# Ensure there is a local copy of the FLEX module structure in the /modules/ directory.
+# Manually download from bcgov/FLEX and add if needed, then the update will work automatically
 
 ## Checking directory
 source("R/checkDirectory.R")
 checkDirectory()
 
 ## Install and load required packages
-source("R/installAndLoadPkgs.R")
-installAndLoadPkgs()
 
-library(raster)
+## Not using this approach at this point, as it will not be stable once deployed to shinyapps.io. Instead, load R packages in global.R using standard library() calls
+# source("R/installAndLoadPkgs.R")
+# installAndLoadPkgs()
+
+
 
 
 ## Checking modules

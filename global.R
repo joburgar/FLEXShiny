@@ -1,10 +1,7 @@
 # global.R
-# test
 
-## Install and load required packages
-source("R/installAndLoadPkgs.R")
-installAndLoadPkgs()
 
+# load required packages
 library(raster)
 library(devtools)
 library(DT)
@@ -36,7 +33,10 @@ library(dynutils)
 library(plotly)
 library(DT)
 
-## Setting up paths
+## Setting up working directory paths for SpaDES module framework
+## checkPath() checks for formatting consistency and will paste the correct path
+## SpaDES.core::setPaths() accesses spades options and sets directory paths
+
 setPaths(cachePath = checkPath(file.path(getwd(), "cache"), create = TRUE),
          inputPath = checkPath(file.path(getwd(), "inputs"), create = TRUE),
          outputPath = checkPath(file.path(getwd(), "outputs"), create = TRUE),
@@ -52,8 +52,8 @@ simTimes <- list(start = 1, end = 1) # need to figure out how to get it to be dy
 ## Setting up modules list 
 moduleList <- list("FLEX") # Name of the modules to run
 
-## Setting up parameters needed
-## NOTE: If you provide an empty list of parameters, these are below are the 
+## Setting up parameter defaults (the UI selectors will default to these)
+## If you provide an empty list of parameters, these are below are the 
 ## defaults
 parameters <- list(
   FLEX = list(

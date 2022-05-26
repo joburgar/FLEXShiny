@@ -31,8 +31,8 @@ ui <- dashboardPage(
       # Main model page
       add_class(
          menuItem(
-           "Run the Model",
-           tabName = "model",
+           "SpaDES simulation",
+           tabName = "spades",
            icon = icon("sliders-h")
          ),
         "model"
@@ -58,10 +58,10 @@ ui <- dashboardPage(
     
     tabItems(
       tabItem(tabName = "home",
-             module_page_home_ui("page_home")),
+             mod_page_home_ui("home")),
       
       tabItem(tabName = "model",
-              module_page_model_ui("page_model"))
+              mod_page_model_ui("spades"))
     ),
     
     

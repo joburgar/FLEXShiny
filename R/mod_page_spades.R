@@ -7,7 +7,7 @@
 #'
 #' @return a tagList containing UI elements
 #'
-module_page_model_ui <- function(id) {
+mod_page_spades_ui <- function(id) {
   
   ns <- NS(id)
   
@@ -25,7 +25,7 @@ module_page_model_ui <- function(id) {
                        step = 1),
           
           numericInput(inputId = ns("input_propFemales"),
-                       label = "Protion Females (0-1)",
+                       label = "Proportion Females (0-1)",
                        value = parameters$FLEX$propFemales,
                        min = 0,
                        max = 1,
@@ -96,7 +96,7 @@ module_page_model_ui <- function(id) {
 #'
 #' @return None
 #'
-module_page_model_server <- function(id) {
+mod_page_spades_server <- function(id) {
   moduleServer(id, function(input, output, session) {
     
     ns <- session$ns

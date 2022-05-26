@@ -9,8 +9,8 @@ server <- function( input, output, session ){
   
   # call module server functions
   
-  # module_page_home_server("page_home")
+  # module_page_home_server("home")
   
-  module_page_model_server("page_model")
+  module_page_model_server("spades")
   
 }
