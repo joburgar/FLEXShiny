@@ -1,7 +1,7 @@
 # global.R
 
 # Have you set the project up yet? If not, got to git_submodule_project_setup.R
-rstudioapi::navigateToFile("git_module_project_setup.R")
+rstudioapi::navigateToFile("git_submodule_init_update.R")
 
 # FLEX model packages (specified versions below, where needed)
 # bypass the automated package checking workflow for now
