@@ -26,16 +26,13 @@ ui <- dashboardPage(
     sidebarMenu(
       # Home page
       menuItem("Home",
-               tabName = "home",
+               tabName = "page_home",
                icon = icon("home")),
+      
       # Main model page
-      add_class(
-         menuItem(
-           "SpaDES simulation",
-           tabName = "spades",
-           icon = icon("sliders-h")
-         ),
-        "model"
+      menuItem("SpaDES simulation",
+               tabName = "page_spades",
+               icon = icon("sliders-h")
       )
     )
   ),
@@ -57,11 +54,11 @@ ui <- dashboardPage(
     )),
     
     tabItems(
-      tabItem(tabName = "home",
-             mod_page_home_ui("home")),
+      tabItem(tabName = "page_home",
+             mod_page_home_ui("page_home")),
       
-      tabItem(tabName = "model",
-              mod_page_spades_ui("spades"))
+      tabItem(tabName = "page_spades",
+              mod_page_spades_ui("page_spades"))
     ),
     
     

@@ -11,6 +11,6 @@ server <- function( input, output, session ){
   
   # mod_page_home_server("home")
   
-  mod_page_spades_server("spades")
+  mod_page_spades_server("page_spades")
   
 }
