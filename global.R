@@ -1,10 +1,8 @@
 # global.R
 
-## Install and load required packages
-source("R/installAndLoadPkgs.R")
-installAndLoadPkgs()
 
-library(raster)
+# load required packages
+# library(raster)
 library(devtools)
 library(DT)
 library(bsplus)
@@ -12,20 +10,20 @@ library(config)
 library(data.table)
 library(dplyr)
 library(ggplot2)
-library(golem)
+# library(golem)
 library(leaflet)
 library(plotly)
 library(purrr)
 library(rintrojs)
 library(rmarkdown)
-library(sf)
+# library(sf)
 library(shiny)
 library(shinyBS)
 library(shinycssloaders)
 library(shinydashboard)
 library(shinydashboardPlus)
 library(shinyjs)
-library(covrpage)
+# library(covrpage)
 library(shinyFeedback)
 library(attempt)
 library(config)
@@ -35,7 +33,39 @@ library(dynutils)
 library(plotly)
 library(DT)
 
-## Setting up paths
+# FLEX model packages (specified versions below, where needed)
+# bypass the automated package checking workflow for now
+# use remotes::install_version() to get specific version from CRAN (not sure if actually needed)
+# require(remotes)
+
+# Package: NetLogoR
+# Version: 0.3.9
+
+# remotes::install_version("NetLogoR",
+#                          version = "0.3.9",
+#                          repos = "http://cran.us.r-project.org")
+
+# Package: SpaDES.core
+# Version: 1.0.10
+
+library(SpaDES.core)
+library(reproducible)
+library(NetLogoR)
+library(magrittr)
+library(dplyr)
+library(Cairo)
+library(stringr)
+library(tidyr)
+library(data.table)
+library(qs)
+library(PNWColors)
+library(sf)
+library(raster)
+
+## Setting up working directory paths for SpaDES module framework
+## checkPath() checks for formatting consistency and will paste the correct path
+## SpaDES.core::setPaths() accesses spades options and sets directory paths
+
 setPaths(cachePath = checkPath(file.path(getwd(), "cache"), create = TRUE),
          inputPath = checkPath(file.path(getwd(), "inputs"), create = TRUE),
          outputPath = checkPath(file.path(getwd(), "outputs"), create = TRUE),
@@ -51,8 +81,8 @@ simTimes <- list(start = 1, end = 1) # need to figure out how to get it to be dy
 ## Setting up modules list 
 moduleList <- list("FLEX") # Name of the modules to run
 
-## Setting up parameters needed
-## NOTE: If you provide an empty list of parameters, these are below are the 
+## Setting up parameter defaults (the UI selectors will default to these)
+## If you provide an empty list of parameters, these are below are the 
 ## defaults
 parameters <- list(
   FLEX = list(
