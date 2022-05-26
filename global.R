@@ -2,7 +2,7 @@
 
 
 # load required packages
-library(raster)
+# library(raster)
 library(devtools)
 library(DT)
 library(bsplus)
@@ -10,20 +10,20 @@ library(config)
 library(data.table)
 library(dplyr)
 library(ggplot2)
-library(golem)
+# library(golem)
 library(leaflet)
 library(plotly)
 library(purrr)
 library(rintrojs)
 library(rmarkdown)
-library(sf)
+# library(sf)
 library(shiny)
 library(shinyBS)
 library(shinycssloaders)
 library(shinydashboard)
 library(shinydashboardPlus)
 library(shinyjs)
-library(covrpage)
+# library(covrpage)
 library(shinyFeedback)
 library(attempt)
 library(config)
@@ -32,6 +32,36 @@ library(tidyverse)
 library(dynutils)
 library(plotly)
 library(DT)
+
+
+# FLEX model packages (specified versions below, where needed)
+# bypass the automated package checking workflow for now
+
+require(remotes)
+
+# Package: NetLogoR
+# Version: 0.3.9
+
+remotes::install_version("NetLogoR",
+                         version = "0.3.9",
+                         repos = "http://cran.us.r-project.org")
+
+# Package: SpaDES.core
+# Version: 1.0.10
+
+library(reproducible)
+library(SpaDES.core)
+library(NetLogoR)
+library(magrittr)
+library(dplyr)
+library(Cairo)
+library(stringr)
+library(tidyr)
+library(data.table)
+library(qs)
+library(PNWColors)
+library(sf)
+library(raster)
 
 ## Setting up working directory paths for SpaDES module framework
 ## checkPath() checks for formatting consistency and will paste the correct path
