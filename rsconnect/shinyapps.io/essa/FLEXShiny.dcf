@@ -1,0 +1,13 @@
+name: FLEXShiny
+title: FLEXShiny
+username:
+account: essa
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6381987
+bundleId: 5949711
+url: https://essa.shinyapps.io/FLEXShiny/
+when: 1653621859.01023
+lastSyncTime: 1653621859.01023
+asMultiple: FALSE
+asStatic: FALSE
