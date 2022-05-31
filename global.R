@@ -1,3 +1,17 @@
+# Copyright 2021 Province of British Columbia
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+#===========================================================================================#
+# You may obtain a copy of the License at
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and limitations under the License.
+#===========================================================================================#
+
 # global.R
 
 # Have you set the project up yet? If not, got to git_submodule_project_setup.R
@@ -14,24 +28,28 @@
 #                          repos = "http://cran.us.r-project.org")
 
 
-require(NetLogoR) # Version: 0.3.9
-require(SpaDES.core) # Version: 1.0.10, this the current version on CRAN
-require(reproducible)
+## Install and load required packages
+source("R/installAndLoadPkgs.R")
+installAndLoadPkgs()
 
-require(magrittr)
-require(dplyr)
-require(Cairo)
-require(stringr)
-require(tidyr)
-require(data.table)
-require(qs)
-require(PNWColors)
-require(sf)
-require(raster)
+
+# require(NetLogoR) # Version: 0.3.9
+# require(SpaDES.core) # Version: 1.0.10, this the current version on CRAN
+# require(reproducible)
+# 
+# require(magrittr)
+# require(dplyr)
+# require(Cairo)
+# require(stringr)
+# require(tidyr)
+# require(data.table)
+# require(qs)
+# require(PNWColors)
+# require(sf)
+# require(raster)
 
 
 # load required packages
-# require(raster)
 require(devtools)
 require(DT)
 require(bsplus)
@@ -59,11 +77,11 @@ require(plotly)
 require(DT)
 
 
-
 ## Setting up working directory paths for SpaDES module framework
 ## checkPath() checks for formatting consistency and will paste the correct path
 ## SpaDES.core::setPaths() accesses spades options and sets directory paths
 
+## Setting up paths
 setPaths(cachePath = checkPath(file.path(getwd(), "cache"), create = TRUE),
          inputPath = checkPath(file.path(getwd(), "inputs"), create = TRUE),
          outputPath = checkPath(file.path(getwd(), "outputs"), create = TRUE),
@@ -71,10 +89,9 @@ setPaths(cachePath = checkPath(file.path(getwd(), "cache"), create = TRUE),
          rasterPath = checkPath(file.path(getwd(), "tempDir"), create = TRUE))
 
 ## Setting up simulation time 
-## NOTE: Currently, the functions are looping on their own over years. 
-## Some work is needed to desconstruct the FEMALE_IBM_simulation_same_world() 
 ## to use the scheduler as expected.
-simTimes <- list(start = 1, end = 1) # need to figure out how to get it to be dynamic # have to add in clus object piece
+simTimes <- list(start = 0, end = 2) # need to figure out how to get it to be dynamic # have to add in clus object piece
+
 
 ## Setting up modules list 
 moduleList <- list("FLEX") # Name of the modules to run
@@ -82,17 +99,15 @@ moduleList <- list("FLEX") # Name of the modules to run
 ## Setting up parameter defaults (the UI selectors will default to these)
 ## If you provide an empty list of parameters, these are below are the 
 ## defaults
+## NOTE: If you provide an empty list of parameters, these are below are the 
+## defaults
 parameters <- list(
   FLEX = list(
-    "iterations" = 5, # using 5 for ease of testing, change to 100 once running
-    # "yrs.to.run" = 10, # not sure this is necessary - part of simTimes above
+    "simulations" = 5, # using 5 for ease of testing, change to 100 once running (number of simulations)
+    "calculateInterval" = 1, # the simulation time at which adult female established territories are calculated
     "propFemales" = 0.3, 
     "maxAgeFemale" = 9,
-    # "TS" = 5,  # using clus_yrs instead
-    "D2_param" = "Max",
-    # "name_out" = "Cariboo", # not using this anymore
-    # "sim_order" = 2, # not using this anymore
-    "clus_yrs" = 5
+    "D2_param" = c("Max","SD")
   )
 )
 

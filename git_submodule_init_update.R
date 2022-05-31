@@ -27,7 +27,7 @@ checkDirectory()
 # 55fcf5e2ec12f47e7a2605ba868bcd6c169cf742
 
 source("R/checkingModules.R")
-checkingModules(updateSubmodules = FALSE, # Should the submodules be updated?
+checkingModules(updateSubmodules = TRUE, # Should the submodules be updated?
                 whichSubmodules = "FLEX", # Specify which modules to be added
                 hostLink = "git@github.com:bcgov/FLEX.git" # Specify the github (SSH) paths to the modules
 )
